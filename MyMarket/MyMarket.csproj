@@ -616,23 +616,23 @@
     <Content Include="CustomerData\lib\owlcarousel\owl.carousel.min.js" />
     <Content Include="CustomerData\mail\contact.js" />
     <Content Include="CustomerData\mail\jqBootstrapValidation.min.js" />
-    <Content Include="Customer\BannerUserControl.aspx" />
+    <Content Include="Customer\BannerUserControl.ascx" />
     <Content Include="Customer\Cart.aspx" />
     <Content Include="Customer\Checkout.aspx" />
     <Content Include="Customer\Contact.aspx" />
     <Content Include="Customer\DefaultCustomer.aspx" />
-    <Content Include="Customer\MarkerDetail.aspx" />
     <Content Include="Customer\Market.aspx" />
+    <Content Include="Customer\MarketDetail.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Customer\BannerUserControl.aspx.cs">
-      <DependentUpon>BannerUserControl.aspx</DependentUpon>
+    <Compile Include="Customer\BannerUserControl.ascx.cs">
+      <DependentUpon>BannerUserControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Customer\BannerUserControl.aspx.designer.cs">
-      <DependentUpon>BannerUserControl.aspx</DependentUpon>
+    <Compile Include="Customer\BannerUserControl.ascx.designer.cs">
+      <DependentUpon>BannerUserControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="Customer\Cart.aspx.cs">
       <DependentUpon>Cart.aspx</DependentUpon>
@@ -669,19 +669,19 @@
     <Compile Include="Customer\DefaultCustomer.aspx.designer.cs">
       <DependentUpon>DefaultCustomer.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Customer\MarkerDetail.aspx.cs">
-      <DependentUpon>MarkerDetail.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Customer\MarkerDetail.aspx.designer.cs">
-      <DependentUpon>MarkerDetail.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Customer\Market.aspx.cs">
       <DependentUpon>Market.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Customer\Market.aspx.designer.cs">
       <DependentUpon>Market.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\MarketDetail.aspx.cs">
+      <DependentUpon>MarketDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\MarketDetail.aspx.designer.cs">
+      <DependentUpon>MarketDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

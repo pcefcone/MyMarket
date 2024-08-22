@@ -11,7 +11,12 @@ namespace MyMarket.Customer
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (Request.Url.AbsoluteUri.ToString().Contains("DefaultCustomer.aspx"))
+            {
+                //load the usercontrol
+                Control sliderUserControl = (Control)Page.LoadControl("BannerUserControl.ascx");
+                pnlSliderUC.Controls.Add(sliderUserControl);
+            }
         }
     }
 }

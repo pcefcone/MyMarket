@@ -1,7 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Customer/Customer.Master" AutoEventWireup="true" CodeBehind="MarketDetail.aspx.cs" Inherits="Market.Customer.MarketDetail" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Customer/Customer.Master" AutoEventWireup="true" CodeBehind="MarketDetail.aspx.cs" Inherits="MyMarket.Customer.MarketDetail" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+
 
       <!-- Page Header Start -->
     <div class="container-fluid bg-secondary mb-5">
@@ -344,3 +345,4 @@
     <!-- Products End -->
 
 </asp:Content>
+

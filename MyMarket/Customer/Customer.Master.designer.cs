@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Market.Customer
+namespace MyMarket.Customer
 {
 
 
