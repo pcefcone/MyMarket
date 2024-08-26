@@ -571,6 +571,9 @@
     <Content Include="AdminData\docs\highlights\highlight.min.css" />
     <Content Include="AdminData\docs\highlights\highlight.min.js" />
     <Content Include="AdminData\src\counter.txt" />
+    <Content Include="Admin\Category.aspx" />
+    <Content Include="Admin\Contact.aspx" />
+    <Content Include="Admin\Dashboard.aspx" />
     <Content Include="CustomerData\css\style.css" />
     <Content Include="CustomerData\css\style.min.css" />
     <Content Include="CustomerData\img\carousel-1.jpg" />
@@ -616,23 +619,51 @@
     <Content Include="CustomerData\lib\owlcarousel\owl.carousel.min.js" />
     <Content Include="CustomerData\mail\contact.js" />
     <Content Include="CustomerData\mail\jqBootstrapValidation.min.js" />
-    <Content Include="Customer\BannerUserControl.aspx" />
+    <Content Include="Customer\BannerUserControl.ascx" />
     <Content Include="Customer\Cart.aspx" />
     <Content Include="Customer\Checkout.aspx" />
     <Content Include="Customer\Contact.aspx" />
     <Content Include="Customer\DefaultCustomer.aspx" />
-    <Content Include="Customer\MarkerDetail.aspx" />
     <Content Include="Customer\Market.aspx" />
+    <Content Include="Customer\MarketDetail.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Customer\BannerUserControl.aspx.cs">
-      <DependentUpon>BannerUserControl.aspx</DependentUpon>
+    <Compile Include="Admin\Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Customer\BannerUserControl.aspx.designer.cs">
-      <DependentUpon>BannerUserControl.aspx</DependentUpon>
+    <Compile Include="Admin\Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Category.aspx.cs">
+      <DependentUpon>Category.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Category.aspx.designer.cs">
+      <DependentUpon>Category.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\BannerUserControl.ascx.cs">
+      <DependentUpon>BannerUserControl.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\BannerUserControl.ascx.designer.cs">
+      <DependentUpon>BannerUserControl.ascx</DependentUpon>
     </Compile>
     <Compile Include="Customer\Cart.aspx.cs">
       <DependentUpon>Cart.aspx</DependentUpon>
@@ -669,19 +700,19 @@
     <Compile Include="Customer\DefaultCustomer.aspx.designer.cs">
       <DependentUpon>DefaultCustomer.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Customer\MarkerDetail.aspx.cs">
-      <DependentUpon>MarkerDetail.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Customer\MarkerDetail.aspx.designer.cs">
-      <DependentUpon>MarkerDetail.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Customer\Market.aspx.cs">
       <DependentUpon>Market.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Customer\Market.aspx.designer.cs">
       <DependentUpon>Market.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Customer\MarketDetail.aspx.cs">
+      <DependentUpon>MarketDetail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Customer\MarketDetail.aspx.designer.cs">
+      <DependentUpon>MarketDetail.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -1013,6 +1044,7 @@
     <Content Include="AdminData\src\package.zip" />
     <Content Include="AdminData\src\README.md" />
     <Content Include="Customer\Customer.Master" />
+    <Content Include="Admin\Admin.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -1022,7 +1054,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Admin\" />
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>

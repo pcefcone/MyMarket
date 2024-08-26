@@ -1,4 +1,4 @@
-﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Customer.master.cs" Inherits="Market.Customer.Customer" %>
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Customer.master.cs" Inherits="MyMarket.Customer.Customer" %>
 
 <!DOCTYPE html>
 
@@ -11,7 +11,7 @@
     <meta content="Free HTML Templates" name="description">
 
     <!-- Favicon -->
-    <link href="../CustomerTemplate/img/favicon.ico" rel="icon">
+   <!-- <link href="../CustomerData/img/favicon.ico" rel="icon">-->
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -21,10 +21,27 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
 
     <!-- Libraries Stylesheet -->
-    <link href="../CustomerTemplate/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="../CustomerData/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
     <!-- Customized Bootstrap Stylesheet -->
-    <link href="../CustomerTemplate/css/style.css" rel="stylesheet">
+    <link href="../CustomerData/css/style.css" rel="stylesheet">
+
+    <script>
+        $(function () {
+            // this will get the full url at the address bar 
+            var url = window.location.href;
+
+            //passes on every "a" tag
+            $("#navbarCollapse a").each(function () {
+                // check if its the same on the address bar
+                if (url == (this.href))
+                    $(this).addClass("active");
+            })
+
+        })
+    </script>
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -109,7 +126,7 @@
                         </button>
                         <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
                             <div class="navbar-nav mr-auto py-0">
-                                <a href="DefaultCustomer.aspx" class="nav-item nav-link active">Home</a>
+                                <a href="DefaultCustomer.aspx" class="nav-item nav-link">Home</a>
                                 <a href="Market.aspx" class="nav-item nav-link">Shop</a>
                                 <a href="MarketDetail.aspx" class="nav-item nav-link">Shop Detail</a>
                                 <div class="nav-item dropdown">
@@ -205,7 +222,7 @@
                     </p>
                 </div>
                 <div class="col-md-6 px-xl-0 text-center text-md-right">
-                    <img class="img-fluid" src="img/payments.png" alt="">
+                    <img class="img-fluid" src="../CustomerData/img/payments.png" alt="">
                 </div>
             </div>
         </div>
@@ -221,14 +238,14 @@
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
-    <script src="../CustomerTemplate/lib/easing/easing.min.js"></script>
-    <script src="../CustomerTemplate/lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="../CustomerData/lib/easing/easing.min.js"></script>
+    <script src="../CustomerData/lib/owlcarousel/owl.carousel.min.js"></script>
 
     <!-- Contact Javascript File -->
-    <script src="../CustomerTemplate/mail/jqBootstrapValidation.min.js"></script>
-    <script src="../CustomerTemplate/mail/contact.js"></script>
+    <script src="../CustomerData/mail/jqBootstrapValidation.min.js"></script>
+    <script src="../CustomerData/mail/contact.js"></script>
     <!-- Template Javascript -->
-    <script src="../CustomerTemplate/js/main.js"></script>
+    <script src="../CustomerData/js/main.js"></script>
 
 
 </body>

@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace MyMarket.Customer
+namespace MyMarket.Admin
 {
 
 
-    public partial class DefaultCustomer
+    public partial class Category
     {
     }
 }

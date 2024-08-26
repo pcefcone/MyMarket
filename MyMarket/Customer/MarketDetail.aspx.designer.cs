@@ -11,7 +11,7 @@ namespace MyMarket.Customer
 {
 
 
-    public partial class DefaultCustomer
+    public partial class MarketDetail
     {
     }
 }

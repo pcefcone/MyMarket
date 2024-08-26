@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace MyMarket.Customer
+namespace MyMarket.Admin
 {
-    public partial class BannerUserControl : System.Web.UI.Page
+    public partial class Category : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
