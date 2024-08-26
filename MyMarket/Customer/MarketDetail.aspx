@@ -25,16 +25,16 @@
                 <div id="product-carousel" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner border">
                         <div class="carousel-item active">
-                            <img class="w-100 h-100" src="../CustomerTemplate/img/product-1.jpg" alt="Image">
+                            <img class="w-100 h-100" src="../CustomerData/img/product-1.jpg" alt="Image">
                         </div>
                         <div class="carousel-item">
-                            <img class="w-100 h-100" src="../CustomerTemplate/img/product-2.jpg" alt="Image">
+                            <img class="w-100 h-100" src="../CustomerData/img/product-2.jpg" alt="Image">
                         </div>
                         <div class="carousel-item">
-                            <img class="w-100 h-100" src="../CustomerTemplate/img/product-3.jpg" alt="Image">
+                            <img class="w-100 h-100" src="../CustomerData/img/product-3.jpg" alt="Image">
                         </div>
                         <div class="carousel-item">
-                            <img class="w-100 h-100" src="../CustomerTemplate/img/product-4.jpg" alt="Image">
+                            <img class="w-100 h-100" src="../CustomerData/img/product-4.jpg" alt="Image">
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#product-carousel" data-slide="prev">
@@ -201,7 +201,7 @@
                             <div class="col-md-6">
                                 <h4 class="mb-4">1 review for "Colorful Stylish Shirt"</h4>
                                 <div class="media mb-4">
-                                    <img src="../CustomerTemplate/img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
+                                    <img src="../CustomerData/img/user.jpg" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
                                     <div class="media-body">
                                         <h6>John Doe<small> - <i>01 Jan 2045</i></small></h6>
                                         <div class="text-primary mb-2">
@@ -265,7 +265,7 @@
                 <div class="owl-carousel related-carousel">
                     <div class="card product-item border-0">
                         <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                            <img class="img-fluid w-100" src="../CustomerTemplate/img/product-1.jpg" alt="">
+                            <img class="img-fluid w-100" src="../CustomerData/img/product-1.jpg" alt="">
                         </div>
                         <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                             <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
@@ -280,7 +280,7 @@
                     </div>
                     <div class="card product-item border-0">
                         <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                            <img class="img-fluid w-100" src="../CustomerTemplate/img/product-2.jpg" alt="">
+                            <img class="img-fluid w-100" src="../CustomerData/img/product-2.jpg" alt="">
                         </div>
                         <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                             <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
@@ -295,7 +295,7 @@
                     </div>
                     <div class="card product-item border-0">
                         <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                            <img class="img-fluid w-100" src="../CustomerTemplate/img/product-3.jpg" alt="">
+                            <img class="img-fluid w-100" src="../CustomerData/img/product-3.jpg" alt="">
                         </div>
                         <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                             <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
@@ -310,7 +310,7 @@
                     </div>
                     <div class="card product-item border-0">
                         <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                            <img class="img-fluid w-100" src="../CustomerTemplate/img/product-4.jpg" alt="">
+                            <img class="img-fluid w-100" src="../CustomerData/img/product-4.jpg" alt="">
                         </div>
                         <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                             <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>
@@ -325,7 +325,7 @@
                     </div>
                     <div class="card product-item border-0">
                         <div class="card-header product-img position-relative overflow-hidden bg-transparent border p-0">
-                            <img class="img-fluid w-100" src="../CustomerTemplate/img/product-5.jpg" alt="">
+                            <img class="img-fluid w-100" src="../CustomerData/img/product-5.jpg" alt="">
                         </div>
                         <div class="card-body border-left border-right text-center p-0 pt-4 pb-3">
                             <h6 class="text-truncate mb-3">Colorful Stylish Shirt</h6>

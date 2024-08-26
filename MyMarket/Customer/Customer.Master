@@ -25,6 +25,21 @@
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="../CustomerData/css/style.css" rel="stylesheet">
+
+    <script>
+        $(function () {
+            // this will get the full url at the address bar 
+            var url = window.location.href;
+
+            //passes on every "a" tag
+            $("#navbarCollapse a").each(function () {
+                // check if its the same on the address bar
+                if(url == (this.href))
+            })
+
+        })
+    </script>
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>

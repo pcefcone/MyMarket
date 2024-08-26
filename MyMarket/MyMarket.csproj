@@ -571,6 +571,8 @@
     <Content Include="AdminData\docs\highlights\highlight.min.css" />
     <Content Include="AdminData\docs\highlights\highlight.min.js" />
     <Content Include="AdminData\src\counter.txt" />
+    <Content Include="Admin\Contact.aspx" />
+    <Content Include="Admin\Dashboard.aspx" />
     <Content Include="CustomerData\css\style.css" />
     <Content Include="CustomerData\css\style.min.css" />
     <Content Include="CustomerData\img\carousel-1.jpg" />
@@ -627,6 +629,27 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Admin\Admin.Master.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Admin.Master.designer.cs">
+      <DependentUpon>Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Contact.aspx.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Contact.aspx.designer.cs">
+      <DependentUpon>Contact.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\Dashboard.aspx.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin\Dashboard.aspx.designer.cs">
+      <DependentUpon>Dashboard.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Customer\BannerUserControl.ascx.cs">
       <DependentUpon>BannerUserControl.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1013,6 +1036,7 @@
     <Content Include="AdminData\src\package.zip" />
     <Content Include="AdminData\src\README.md" />
     <Content Include="Customer\Customer.Master" />
+    <Content Include="Admin\Admin.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -1022,7 +1046,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Admin\" />
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
   </ItemGroup>
