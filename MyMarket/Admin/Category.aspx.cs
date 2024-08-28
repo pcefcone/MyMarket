@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -23,7 +24,7 @@ namespace MyMarket.Admin
         protected void btnAddOrUpdate_Click(object sender, EventArgs e)
         {
             string actionName = string.Empty;
-            string imagePath = string.Empty; 
+            string imagePath = string.Empty;
             string fileExtension = string.Empty;
             bool isValid = false;
             int categoryId = Convert.ToInt32(hfCategoryId.Value);
@@ -35,7 +36,20 @@ namespace MyMarket.Admin
             cmd.Parameters.AddWithValue("@IsActive", cbIsActive.Checked);
             if (fuCategoryImage.HasFiles || fuCategoryImage.HasFiles)
             {
-
+                if (Utils.isValidExtension(fuCategoryImage.FileName))
+                {
+                    string newImageName = Utils.getUniqueId();
+                    fileExtension = Path.GetExtension(fuCategoryImage.FileName);
+                    imagePath = "Images/Category/" + newImageName.ToString() + fileExtension;
+                    fuCategoryImage.PostedFile.SaveAs(Server.MapPath("~/Images/Category/") + newImageName.ToString() + fileExtension);
+                    cmd.Parameters.AddWithValue("@CategoryImageUrl", imagePath);
+                }
+                else
+                {
+                    lblMessage.Visible = false;
+                    lblMessage.Text = "Please selct .jpg, .png or .jpeg image";
+                    lblMessage.CssClass = "alert alert-danger";
+                }
             }
         }
 

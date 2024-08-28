@@ -35,7 +35,12 @@ namespace MyMarket
                 }
             }
             return isValid;
+        }
 
+        public static string getUniqueId()
+        {
+            Guid guid = new Guid();
+            return guid.ToString(); 
         }
     }
 }
