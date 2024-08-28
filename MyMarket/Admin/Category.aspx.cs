@@ -51,6 +51,33 @@ namespace MyMarket.Admin
                     lblMessage.CssClass = "alert alert-danger";
                 }
             }
+            else
+            {
+                isValid = true;
+            }
+            if (isValid)
+            {
+                cmd.CommandType = CommandType.StoredProcedure;
+                try
+                {
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    actionName = categoryId == 0 ? "inserted" : "Successfull";
+                    lblMessage.Visible = true;
+                    lblMessage.Text = "Category" + actionName + " successfull!";
+                    lblMessage.CssClass = "alert alert-success";
+                }
+                catch (Exception ex)
+                {
+                    lblMessage.Visible = true;
+                    lblMessage.Text = "Error-" + ex.Message;
+                    lblMessage.CssClass = "alert alert-danger";
+                }
+                finally
+                {
+                    conn.Close();
+                }
+            }
         }
 
         protected void btnClear_Click(object sender, EventArgs e)
