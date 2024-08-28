@@ -28,6 +28,15 @@ namespace MyMarket.Admin
             bool isValid = false;
             int categoryId = Convert.ToInt32(hfCategoryId.Value);
             conn = new SqlConnection(Utils.getConnection());
+            cmd = new SqlCommand("Category_Proc", conn);
+            cmd.Parameters.AddWithValue("@Action", categoryId == 0 ? "INSERT" : "UPDATE");
+            cmd.Parameters.AddWithValue("@CategoryId", categoryId);
+            cmd.Parameters.AddWithValue("@CategoryName", txtCategoryName.Text.Trim());
+            cmd.Parameters.AddWithValue("@IsActive", cbIsActive.Checked);
+            if (fuCategoryImage.HasFiles || fuCategoryImage.HasFiles)
+            {
+
+            }
         }
 
         protected void btnClear_Click(object sender, EventArgs e)
