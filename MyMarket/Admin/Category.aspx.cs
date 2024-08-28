@@ -18,6 +18,7 @@ namespace MyMarket.Admin
         DataTable dt;
         protected void Page_Load(object sender, EventArgs e)
         {
+            lblMessage.Visible = false;
 
         }
 
@@ -43,12 +44,14 @@ namespace MyMarket.Admin
                     imagePath = "Images/Category/" + newImageName.ToString() + fileExtension;
                     fuCategoryImage.PostedFile.SaveAs(Server.MapPath("~/Images/Category/") + newImageName.ToString() + fileExtension);
                     cmd.Parameters.AddWithValue("@CategoryImageUrl", imagePath);
+                    isValid = true;
                 }
                 else
                 {
                     lblMessage.Visible = false;
                     lblMessage.Text = "Please selct .jpg, .png or .jpeg image";
                     lblMessage.CssClass = "alert alert-danger";
+                    isValid = false;
                 }
             }
             else
@@ -82,7 +85,17 @@ namespace MyMarket.Admin
 
         protected void btnClear_Click(object sender, EventArgs e)
         {
-
+            clear();
         }
+
+        void clear()
+        {
+            txtCategoryName.Text = string.Empty;
+            cbIsActive.Checked = false;
+            hfCategoryId.Value = "0";
+            btnAddOrUpdate.Text = "Add";
+            ImagePreview.ImageUrl = string.Empty;
+        }
+
     }
 }
