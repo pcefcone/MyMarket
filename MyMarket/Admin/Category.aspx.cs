@@ -27,7 +27,7 @@ namespace MyMarket.Admin
             string fileExtension = string.Empty;
             bool isValid = false;
             int categoryId = Convert.ToInt32(hfCategoryId.Value);
-            conn = new SqlConnection();
+            conn = new SqlConnection(Utils.getConnection());
         }
 
         protected void btnClear_Click(object sender, EventArgs e)
