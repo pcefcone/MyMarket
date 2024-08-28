@@ -67,7 +67,7 @@ namespace MyMarket.Admin
                     cmd.ExecuteNonQuery();
                     actionName = categoryId == 0 ? "inserted" : "Successfull";
                     lblMessage.Visible = true;
-                    lblMessage.Text = "Category" + actionName + " successfull!";
+                    lblMessage.Text = "Category " + actionName + " successfully!";
                     lblMessage.CssClass = "alert alert-success";
                 }
                 catch (Exception ex)
