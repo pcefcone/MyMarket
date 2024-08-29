@@ -97,7 +97,7 @@
                                         </asp:Label>
                                     </td>
                                     <td>
-                                        <%# Eval("CreatedDate") %>
+                                        <%# Eval("CreateDate") %>
                                     </td>
                                     <td>
                                         <asp:LinkButton ID="lbEdit" Text="Edit" runat="server" CssClass="badge badge-primary">
