@@ -1,6 +1,35 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="Category.aspx.cs" Inherits="MyMarket.Admin.Category" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
+<!-- JS SCRIPTS -->
+   <!--1 For disappearing alert message--> 
+    <script>
+        window.onload = function () {
+            var seconds = 5;
+            setTimeout(function () {
+                document.getElementById("<%=lblMessage.ClientID%>").style.display = "none";
+            }, seconds * 1000);
+        };
+
+    </script>
+
+   <!--2 For image preview--> 
+    <script>
+        function ImagePreview(input)
+        {
+            if (input.files && input.files[0])
+            {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#<%=ImagePreview.ClientID%>').prop('src', e.target.result)
+                        .width(200)
+                        .height(200);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -28,12 +57,14 @@
                                 </div>
                             </div>
                         </div>
+ <!-- preview JS script realization in form bottom-->
 
                         <label>Category Image</label>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <asp:FileUpload ID="fuCategoryImage" runat="server" CssClass="form-control" />
+                                    <asp:FileUpload ID="fuCategoryImage" runat="server" CssClass="form-control" 
+                                        onchange="ImagePreview(this);" />
                                     <asp:HiddenField ID="hfCategoryId" runat="server" Value="0" />
                                 </div>
                             </div>
@@ -51,7 +82,7 @@
                     <%//events %>
                     <div class="form-action pb-5">
                         <div class="text-left">
-                            <asp:Button ID="btnAddOrUpdate" runat="server" CssClass="btn btn-info" Text="Add" OnClick="btnAddOrUpdate_Click"/>
+                            <asp:Button ID="btnAddOrUpdate" runat="server" CssClass="btn btn-info" Text="Add" OnClick="btnAddOrUpdate_Click" />
                             <asp:Button ID="btnClear" runat="server" CssClass="btn btn-dark" Text="Reset" OnClick="btnClear_Click" />
                         </div>
                     </div>
@@ -70,19 +101,53 @@
                     <h4 class="card-title">Category List</h4>
                     <hr />
                     <div class="table-responsive">
-                        <asp:Repeater ID="rCategory" runat="server">
+                        <!-- Adding Edit event on page -->
+                        <asp:Repeater ID="rCategory" runat="server" OnItemCommand="rCategory_ItemCommand">
                             <HeaderTemplate>
-
+                                <table class="table data-table-export table-hover no-wrap">
+                                    <thead>
+                                        <tr>
+                                            <th class="table-plus">Name</th>
+                                            <th>Image</th>
+                                            <th>IsActive</th>
+                                            <th>CreatedDate</th>
+                                            <th class="datatable-nosort">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
                             </HeaderTemplate>
                             <ItemTemplate>
-                                </ItemTemplate>
-
+                                <tr>
+                                    <td class="table-plus"><%# Eval("CategoryName") %> </td>
+                                    <td>
+                                        <img width="40" src="<%# MyMarket.Utils.GetImageUrl(Eval("CategoryImageUrl")) %>" alt="image" />
+                                    </td>
+                                    <td>
+                                        <asp:Label ID="lblIsActive" runat="server"
+                                            Text='<%# (bool)Eval("IsActive") == true ? "Active" : "InActive"%>'
+                                            CssClass='<%# (bool)Eval("IsActive") == true ? "badge badge-success" : "badge badge-danger" %>'>
+                                        </asp:Label>
+                                    </td>
+                                    <td>
+                                        <%# Eval("CreateDate") %>
+                                    </td>
+                                    <td>
+                                        <asp:LinkButton ID="lbEdit" Text="Edit" runat="server" CssClass="badge badge-primary"
+                                            CommandArgument='<%# Eval("CategoryId") %>' CommandName="Edit" CausesValidation="false">
+                                            <i class="fas fa-edit"></i>
+                                        </asp:LinkButton>
+                                        <asp:LinkButton ID="lbDelete" Text="Delete" runat="server" CssClass="badge badge-danger">
+                                              <i class="fas fa-trash-alt"></i>
+                                        </asp:LinkButton>
+                                    </td>
+                                </tr>
+                            </ItemTemplate>
                             <FooterTemplate>
-
+                                </tbody>
+                </table>
                             </FooterTemplate>
                         </asp:Repeater>
-
-                        </div>
+                    </div>
                 </div>
             </div>
         </div>

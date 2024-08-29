@@ -19,7 +19,20 @@ namespace MyMarket.Admin
         protected void Page_Load(object sender, EventArgs e)
         {
             lblMessage.Visible = false;
+            getCategories();
+        }
 
+        void getCategories()
+        {
+            conn = new SqlConnection(Utils.getConnection());
+            cmd = new SqlCommand("Category_Proc", conn);
+            cmd.Parameters.AddWithValue("@Action" , "GETALL");
+            cmd.CommandType = CommandType.StoredProcedure;
+            sda= new SqlDataAdapter(cmd);
+            dt = new DataTable();
+            sda.Fill(dt);
+            rCategory.DataSource = dt;
+            rCategory.DataBind();
         }
 
         protected void btnAddOrUpdate_Click(object sender, EventArgs e)
@@ -35,7 +48,7 @@ namespace MyMarket.Admin
             cmd.Parameters.AddWithValue("@CategoryId", categoryId);
             cmd.Parameters.AddWithValue("@CategoryName", txtCategoryName.Text.Trim());
             cmd.Parameters.AddWithValue("@IsActive", cbIsActive.Checked);
-            if (fuCategoryImage.HasFiles || fuCategoryImage.HasFiles)
+            if (fuCategoryImage.HasFile || fuCategoryImage.HasFiles)
             {
                 if (Utils.isValidExtension(fuCategoryImage.FileName))
                 {
@@ -97,5 +110,33 @@ namespace MyMarket.Admin
             ImagePreview.ImageUrl = string.Empty;
         }
 
+        //EditEventmethod
+        protected void rCategory_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            lblMessage.Visible=false;
+            if(e.CommandName=="Edit")
+            {
+                conn = new SqlConnection(Utils.getConnection());
+                cmd = new SqlCommand("Category_Proc", conn);
+                cmd.Parameters.AddWithValue("@Action", "GETBYID");
+                cmd.Parameters.AddWithValue("@CategoryId", e.CommandArgument);
+                cmd.CommandType = CommandType.StoredProcedure;
+                sda = new SqlDataAdapter(cmd);
+                dt = new DataTable();
+                sda.Fill(dt);
+                txtCategoryName.Text = dt.Rows[0]["CategoryName"].ToString();
+                cbIsActive.Checked = Convert.ToBoolean(dt.Rows[0]["IsActive"]);
+                ImagePreview.ImageUrl = string.IsNullOrEmpty(dt.Rows[0]["CategoryImageUrl"].ToString()) ? "../Images/NoImage.png" : "../" + dt.Rows[0]["CategoryImageUrl"].ToString();
+                ImagePreview.Height = 200;
+                ImagePreview.Width = 200;
+                hfCategoryId.Value = dt.Rows[0]["CategoryId"].ToString();
+                btnAddOrUpdate.Text = "Update";
+            }
+        }
+
+        //protected void btnAdd_Click(object sender, EventArgs e)
+        //{
+
+        //}
     }
 }
