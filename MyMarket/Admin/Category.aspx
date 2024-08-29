@@ -71,7 +71,6 @@
                     <hr />
                     <div class="table-responsive">
                         <asp:Repeater ID="rCategory" runat="server">
-
                             <HeaderTemplate>
                                 <table>
                                     <thead>
@@ -85,16 +84,15 @@
                                     </thead>
                                     <tbody>
                             </HeaderTemplate>
-
                             <ItemTemplate>
                                 <tr>
-                                    <td class="table-plus"><%# Eval("CategoryName") %>
+                                    <td class="table-plus"><%# Eval("CategoryName") %> </td>
                                     <td>
                                         <img width="40" src="<%# MyMarket.Utils.GetImageUrl(Eval("CategoryImageUrl")) %>" alt="image" />
                                     </td>
                                     <td>
                                         <asp:Label ID="lblIsActive" runat="server"
-                                            Text='<%#(bool)Eval("IsActive") == true ? "Active" : "InActive"%>'
+                                            Text='<%# (bool)Eval("IsActive") == true ? "Active" : "InActive"%>'
                                             CssClass='<%# (bool)Eval("IsActive") == true ? "badge badge-success" : "badge badge-danger" %>'>
                                         </asp:Label>
                                     </td>
@@ -111,9 +109,9 @@
                                     </td>
                                 </tr>
                             </ItemTemplate>
-                            </tbody>
-                </table>
                             <FooterTemplate>
+                                </tbody>
+                </table>
                             </FooterTemplate>
                         </asp:Repeater>
 
