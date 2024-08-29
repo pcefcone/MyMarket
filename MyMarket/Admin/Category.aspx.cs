@@ -48,7 +48,7 @@ namespace MyMarket.Admin
             cmd.Parameters.AddWithValue("@CategoryId", categoryId);
             cmd.Parameters.AddWithValue("@CategoryName", txtCategoryName.Text.Trim());
             cmd.Parameters.AddWithValue("@IsActive", cbIsActive.Checked);
-            if (fuCategoryImage.HasFiles || fuCategoryImage.HasFiles)
+            if (fuCategoryImage.HasFile || fuCategoryImage.HasFiles)
             {
                 if (Utils.isValidExtension(fuCategoryImage.FileName))
                 {
@@ -114,7 +114,7 @@ namespace MyMarket.Admin
         protected void rCategory_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
             lblMessage.Visible=false;
-            if(e.CommandName=="edit")
+            if(e.CommandName=="Edit")
             {
                 conn = new SqlConnection(Utils.getConnection());
                 cmd = new SqlCommand("Category_Proc", conn);
