@@ -39,7 +39,7 @@ namespace MyMarket
 
         public static string getUniqueId()
         {
-            Guid guid = new Guid();
+            Guid guid = Guid.NewGuid();
             return guid.ToString(); 
         }
     }

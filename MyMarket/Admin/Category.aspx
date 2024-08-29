@@ -67,8 +67,22 @@
         <div class="col-sm-12 col-md-8">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Category</h4>
+                    <h4 class="card-title">Category List</h4>
                     <hr />
+                    <div class="table-responsive">
+                        <asp:Repeater ID="rCategory" runat="server">
+                            <HeaderTemplate>
+
+                            </HeaderTemplate>
+                            <ItemTemplate>
+                                </ItemTemplate>
+
+                            <FooterTemplate>
+
+                            </FooterTemplate>
+                        </asp:Repeater>
+
+                        </div>
                 </div>
             </div>
         </div>
