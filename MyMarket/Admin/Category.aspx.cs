@@ -97,5 +97,9 @@ namespace MyMarket.Admin
             ImagePreview.ImageUrl = string.Empty;
         }
 
+        //protected void btnAdd_Click(object sender, EventArgs e)
+        //{
+            
+        //}
     }
 }

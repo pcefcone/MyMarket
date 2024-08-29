@@ -51,7 +51,7 @@
                     <%//events %>
                     <div class="form-action pb-5">
                         <div class="text-left">
-                            <asp:Button ID="btnAddOrUpdate" runat="server" CssClass="btn btn-info" Text="Add" OnClick="btnAddOrUpdate_Click"/>
+                            <asp:Button ID="btnAddOrUpdate" runat="server" CssClass="btn btn-info" Text="Add" OnClick="btnAddOrUpdate_Click" />
                             <asp:Button ID="btnClear" runat="server" CssClass="btn btn-dark" Text="Reset" OnClick="btnClear_Click" />
                         </div>
                     </div>
@@ -71,18 +71,37 @@
                     <hr />
                     <div class="table-responsive">
                         <asp:Repeater ID="rCategory" runat="server">
+
                             <HeaderTemplate>
-
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th class="table-plus">Name</th>
+                                            <th>Image</th>
+                                            <th>IsActive</th>
+                                            <th>CreatedDate</th>
+                                            <th class="datatable-nosort">Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
                             </HeaderTemplate>
+
                             <ItemTemplate>
-                                </ItemTemplate>
+                                <tr>
+                                    <td class="table-plus"><%# Eval("CategoryName") %>
+                                    <td><%# Eval("CategoryName") %>
+                                        <img width="40" ">
 
+                                    </td>
+                                </tr>
+                            </ItemTemplate>
+                            </tbody>
+                </table>
                             <FooterTemplate>
-
                             </FooterTemplate>
                         </asp:Repeater>
 
-                        </div>
+                    </div>
                 </div>
             </div>
         </div>
