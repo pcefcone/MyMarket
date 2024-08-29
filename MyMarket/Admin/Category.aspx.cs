@@ -22,6 +22,7 @@ namespace MyMarket.Admin
             getCategories();
         }
 
+
         void getCategories()
         {
             conn = new SqlConnection(Utils.getConnection());
