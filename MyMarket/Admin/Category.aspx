@@ -1,6 +1,23 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="Category.aspx.cs" Inherits="MyMarket.Admin.Category" %>
-
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+
+<!-- JS SCRIPT -->
+    <script>
+        function ImagePreview(input)
+        {
+            if (input.files && input.files[0])
+            {
+                var reader = new FileReader();
+                reader.onload = function (e) {
+                    $('#<%=ImagePreview.ClientID%>').prop('src', e.target.result)
+                        .width(200)
+                        .height(200);
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    </script>
+
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
@@ -28,12 +45,14 @@
                                 </div>
                             </div>
                         </div>
+ <!-- preview JS script realization in form bottom-->
 
                         <label>Category Image</label>
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="form-group">
-                                    <asp:FileUpload ID="fuCategoryImage" runat="server" CssClass="form-control" />
+                                    <asp:FileUpload ID="fuCategoryImage" runat="server" CssClass="form-control" 
+                                        onchange="ImagePreview(this);" />
                                     <asp:HiddenField ID="hfCategoryId" runat="server" Value="0" />
                                 </div>
                             </div>
