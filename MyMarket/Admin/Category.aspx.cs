@@ -129,6 +129,8 @@ namespace MyMarket.Admin
                 ImagePreview.ImageUrl = string.IsNullOrEmpty(dt.Rows[0]["CategoryImageUrl"].ToString()) ? "../Images/NoImage.png" : "../" + dt.Rows[0]["CategoryImageUrl"].ToString();
                 ImagePreview.Height = 200;
                 ImagePreview.Width = 200;
+                hfCategoryId.Value = dt.Rows[0]["CategoryId"].ToString();
+                btnAddOrUpdate.Text = "Update";
             }
         }
 
