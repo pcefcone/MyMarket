@@ -4,15 +4,12 @@
 <!-- JS SCRIPTS -->
    <!--1 For disappearing alert message--> 
     <script>
-        window.onload = function ()
-        {
+        window.onload = function () {
             var seconds = 5;
-            function first()
-            {
+            setTimeout(function () {
                 document.getElementById("<%=lblMessage.ClientID%>").style.display = "none";
-            }
-            setTimeout(function first(), seconds * 1000);
-        }
+            }, seconds * 1000);
+        };
 
     </script>
 
@@ -136,7 +133,7 @@
                                     </td>
                                     <td>
                                         <asp:LinkButton ID="lbEdit" Text="Edit" runat="server" CssClass="badge badge-primary"
-                                            CommandArgument='<%# Eval("CategoryId") %>' CommandName="Edit" >
+                                            CommandArgument='<%# Eval("CategoryId") %>' CommandName="Edit" CausesValidation="false">
                                             <i class="fas fa-edit"></i>
                                         </asp:LinkButton>
                                         <asp:LinkButton ID="lbDelete" Text="Delete" runat="server" CssClass="badge badge-danger">
