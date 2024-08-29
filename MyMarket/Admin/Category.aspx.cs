@@ -22,6 +22,19 @@ namespace MyMarket.Admin
 
         }
 
+        void getCategories()
+        {
+            conn = new SqlConnection(Utils.getConnection());
+            cmd = new SqlCommand("Category_Proc", conn);
+            cmd.Parameters.AddWithValue("@Action" , "GETALL");
+            cmd.CommandType = CommandType.StoredProcedure;
+            sda= new SqlDataAdapter(cmd);
+            dt = new DataTable();
+            sda.Fill(dt);
+            rCategory.DataSource = dt;
+            rCategory.DataBind();
+        }
+
         protected void btnAddOrUpdate_Click(object sender, EventArgs e)
         {
             string actionName = string.Empty;
