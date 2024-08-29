@@ -72,7 +72,7 @@
                     <div class="table-responsive">
                         <asp:Repeater ID="rCategory" runat="server">
                             <HeaderTemplate>
-                                <table>
+                                <table class="table data-table-export table-hover no-wrap">
                                     <thead>
                                         <tr>
                                             <th class="table-plus">Name</th>
@@ -114,7 +114,6 @@
                 </table>
                             </FooterTemplate>
                         </asp:Repeater>
-
                     </div>
                 </div>
             </div>
