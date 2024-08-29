@@ -110,9 +110,31 @@ namespace MyMarket.Admin
             ImagePreview.ImageUrl = string.Empty;
         }
 
+        //EditEventmethod
+        protected void rCategory_ItemCommand(object source, RepeaterCommandEventArgs e)
+        {
+            lblMessage.Visible=false;
+            if(e.CommandName=="edit")
+            {
+                conn = new SqlConnection(Utils.getConnection());
+                cmd = new SqlCommand("Category_Proc", conn);
+                cmd.Parameters.AddWithValue("@Action", "GETBYID");
+                cmd.Parameters.AddWithValue("@CategoryId", e.CommandArgument);
+                cmd.CommandType = CommandType.StoredProcedure;
+                sda = new SqlDataAdapter(cmd);
+                dt = new DataTable();
+                sda.Fill(dt);
+                txtCategoryName.Text = dt.Rows[0]["CategoryName"].ToString();
+                cbIsActive.Checked = Convert.ToBoolean(dt.Rows[0]["IsActive"]);
+                ImagePreview.ImageUrl = string.IsNullOrEmpty(dt.Rows[0]["CategoryImageUrl"].ToString()) ? "../Images/NoImage.png" : "../" + dt.Rows[0]["CategoryImageUrl"].ToString();
+                ImagePreview.Height = 200;
+                ImagePreview.Width = 200;
+            }
+        }
+
         //protected void btnAdd_Click(object sender, EventArgs e)
         //{
-            
+
         //}
     }
 }

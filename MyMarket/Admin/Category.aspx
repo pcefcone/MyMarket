@@ -1,7 +1,22 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="Category.aspx.cs" Inherits="MyMarket.Admin.Category" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 
-<!-- JS SCRIPT -->
+<!-- JS SCRIPTS -->
+   <!--1 For disappearing alert message--> 
+    <script>
+        window.onload = function ()
+        {
+            var seconds = 5;
+            function first()
+            {
+                document.getElementById("<%=lblMessage.ClientID%>").style.display = "none";
+            }
+            setTimeout(function first(), seconds * 1000);
+        }
+
+    </script>
+
+   <!--2 For image preview--> 
     <script>
         function ImagePreview(input)
         {
@@ -89,7 +104,8 @@
                     <h4 class="card-title">Category List</h4>
                     <hr />
                     <div class="table-responsive">
-                        <asp:Repeater ID="rCategory" runat="server">
+                        <!-- Adding Edit event on page -->
+                        <asp:Repeater ID="rCategory" runat="server" OnItemCommand="rCategory_ItemCommand">
                             <HeaderTemplate>
                                 <table class="table data-table-export table-hover no-wrap">
                                     <thead>
@@ -119,7 +135,8 @@
                                         <%# Eval("CreateDate") %>
                                     </td>
                                     <td>
-                                        <asp:LinkButton ID="lbEdit" Text="Edit" runat="server" CssClass="badge badge-primary">
+                                        <asp:LinkButton ID="lbEdit" Text="Edit" runat="server" CssClass="badge badge-primary"
+                                            CommandArgument='<%# Eval("CategoryId") %>' CommandName="Edit" >
                                             <i class="fas fa-edit"></i>
                                         </asp:LinkButton>
                                         <asp:LinkButton ID="lbDelete" Text="Delete" runat="server" CssClass="badge badge-danger">
