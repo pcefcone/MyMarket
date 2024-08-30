@@ -21,8 +21,7 @@ namespace MyMarket.Admin
             lblMessage.Visible = false;
             getCategories();
         }
-
-
+      
         void getCategories()
         {
             conn = new SqlConnection(Utils.getConnection());
