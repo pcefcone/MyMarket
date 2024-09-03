@@ -18,6 +18,9 @@ namespace MyMarket.Admin
         DataTable dt;
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session["breadCumbTitle"] = "Manage Category"; //SessionName
+            Session["breadCumbPage"] = "Category";
+
             lblMessage.Visible = false;
             getCategories();
         }
@@ -37,6 +40,7 @@ namespace MyMarket.Admin
 
         protected void btnAddOrUpdate_Click(object sender, EventArgs e)
         {
+            
             string actionName = string.Empty;
             string imagePath = string.Empty;
             string fileExtension = string.Empty;
@@ -48,7 +52,7 @@ namespace MyMarket.Admin
             cmd.Parameters.AddWithValue("@CategoryId", categoryId);
             cmd.Parameters.AddWithValue("@CategoryName", txtCategoryName.Text.Trim());
             cmd.Parameters.AddWithValue("@IsActive", cbIsActive.Checked);
-            if (fuCategoryImage.HasFile || fuCategoryImage.HasFiles)
+            if (fuCategoryImage.HasFile)
             {
                 if (Utils.isValidExtension(fuCategoryImage.FileName))
                 {
@@ -78,10 +82,12 @@ namespace MyMarket.Admin
                 {
                     conn.Open();
                     cmd.ExecuteNonQuery();
-                    actionName = categoryId == 0 ? "inserted" : "Successfull";
+                    actionName = categoryId == 0 ? "inserted" : "updated";
                     lblMessage.Visible = true;
                     lblMessage.Text = "Category " + actionName + " successfully!";
                     lblMessage.CssClass = "alert alert-success";
+                    getCategories();
+                    clear();
                 }
                 catch (Exception ex)
                 {
@@ -92,6 +98,8 @@ namespace MyMarket.Admin
                 finally
                 {
                     conn.Close();
+                    //Server.TransferRequest(Request.Url.AbsolutePath);
+
                 }
             }
         }
@@ -131,6 +139,35 @@ namespace MyMarket.Admin
                 ImagePreview.Width = 200;
                 hfCategoryId.Value = dt.Rows[0]["CategoryId"].ToString();
                 btnAddOrUpdate.Text = "Update";
+            }
+            else if (e.CommandName=="Delete")
+            {
+                conn = new SqlConnection(Utils.getConnection());
+                cmd = new SqlCommand("Category_Proc", conn);
+                cmd.Parameters.AddWithValue("@Action", "DELETE");
+                cmd.Parameters.AddWithValue("@CategoryId", e.CommandArgument);
+                cmd.CommandType = CommandType.StoredProcedure;
+                try
+                {
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    lblMessage.Visible = true;
+                    lblMessage.Text = "Category deleted successfully!";
+                    lblMessage.CssClass = "alert alert-success";
+                    getCategories();
+                }
+                catch (Exception ex)
+                {
+                    lblMessage.Visible = true;
+                    lblMessage.Text = "Error-" + ex.Message;
+                    lblMessage.CssClass = "alert alert-danger";
+                }
+                finally
+                {
+                    conn.Close();
+                    //Server.TransferRequest(Request.Url.AbsolutePath);
+
+                }
             }
         }
 

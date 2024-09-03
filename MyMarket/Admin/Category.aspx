@@ -83,6 +83,12 @@
                     <div class="form-action pb-5">
                         <div class="text-left">
                             <asp:Button ID="btnAddOrUpdate" runat="server" CssClass="btn btn-info" Text="Add" OnClick="btnAddOrUpdate_Click" />
+                        
+                            <!--<script type="text/javascript">
+                                function reloadPage() {
+                                    window.location.reload()
+                            </script>
+                            <meta http-equiv="refresh" content="600">  <!--page refresh-->
                             <asp:Button ID="btnClear" runat="server" CssClass="btn btn-dark" Text="Reset" OnClick="btnClear_Click" />
                         </div>
                     </div>
@@ -134,10 +140,11 @@
                                     <td>
                                         <asp:LinkButton ID="lbEdit" Text="Edit" runat="server" CssClass="badge badge-primary"
                                             CommandArgument='<%# Eval("CategoryId") %>' CommandName="Edit" CausesValidation="false">
-                                            <i class="fas fa-edit"></i>
+                                            <<i class="fas fa-edit"></i>>
                                         </asp:LinkButton>
-                                        <asp:LinkButton ID="lbDelete" Text="Delete" runat="server" CssClass="badge badge-danger">
-                                              <i class="fas fa-trash-alt"></i>
+                                       <asp:LinkButton ID="lbDelete" Text="Delete" runat="server" CssClass="badge badge-danger"
+                                            CommandArgument='<%# Eval("CategoryId") %>' CommandName="Delete" CausesValidation="false">
+                                              <<i class="fas fa-trash-alt"></i>>
                                         </asp:LinkButton>
                                     </td>
                                 </tr>
