@@ -95,7 +95,7 @@ namespace MyMarket.Admin
                 finally
                 {
                     conn.Close();
-                    Server.TransferRequest(Request.Url.AbsolutePath);
+                    //Server.TransferRequest(Request.Url.AbsolutePath);
 
                 }
             }
@@ -136,6 +136,35 @@ namespace MyMarket.Admin
                 ImagePreview.Width = 200;
                 hfCategoryId.Value = dt.Rows[0]["CategoryId"].ToString();
                 btnAddOrUpdate.Text = "Update";
+            }
+            else if (e.CommandName=="Delete")
+            {
+                conn = new SqlConnection(Utils.getConnection());
+                cmd = new SqlCommand("Category_Proc", conn);
+                cmd.Parameters.AddWithValue("@Action", "DELETE");
+                cmd.Parameters.AddWithValue("@CategoryId", e.CommandArgument);
+                cmd.CommandType = CommandType.StoredProcedure;
+                try
+                {
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    lblMessage.Visible = true;
+                    lblMessage.Text = "Category deleted successfully!";
+                    lblMessage.CssClass = "alert alert-success";
+                    getCategories();
+                }
+                catch (Exception ex)
+                {
+                    lblMessage.Visible = true;
+                    lblMessage.Text = "Error-" + ex.Message;
+                    lblMessage.CssClass = "alert alert-danger";
+                }
+                finally
+                {
+                    conn.Close();
+                    //Server.TransferRequest(Request.Url.AbsolutePath);
+
+                }
             }
         }
 
