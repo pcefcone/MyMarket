@@ -18,6 +18,9 @@ namespace MyMarket.Admin
         DataTable dt;
         protected void Page_Load(object sender, EventArgs e)
         {
+            Session["breadCumbTitle"] = "Manage Category"; //SessionName
+            Session["breadCumbPage"] = "Category";
+
             lblMessage.Visible = false;
             getCategories();
         }
