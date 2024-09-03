@@ -37,6 +37,7 @@ namespace MyMarket.Admin
 
         protected void btnAddOrUpdate_Click(object sender, EventArgs e)
         {
+            
             string actionName = string.Empty;
             string imagePath = string.Empty;
             string fileExtension = string.Empty;
@@ -48,7 +49,7 @@ namespace MyMarket.Admin
             cmd.Parameters.AddWithValue("@CategoryId", categoryId);
             cmd.Parameters.AddWithValue("@CategoryName", txtCategoryName.Text.Trim());
             cmd.Parameters.AddWithValue("@IsActive", cbIsActive.Checked);
-            if (fuCategoryImage.HasFile || fuCategoryImage.HasFiles)
+            if (fuCategoryImage.HasFile)
             {
                 if (Utils.isValidExtension(fuCategoryImage.FileName))
                 {
@@ -78,10 +79,12 @@ namespace MyMarket.Admin
                 {
                     conn.Open();
                     cmd.ExecuteNonQuery();
-                    actionName = categoryId == 0 ? "inserted" : "Successfull";
+                    actionName = categoryId == 0 ? "inserted" : "updated";
                     lblMessage.Visible = true;
                     lblMessage.Text = "Category " + actionName + " successfully!";
                     lblMessage.CssClass = "alert alert-success";
+                    getCategories();
+                    clear();
                 }
                 catch (Exception ex)
                 {
@@ -92,6 +95,8 @@ namespace MyMarket.Admin
                 finally
                 {
                     conn.Close();
+                    Server.TransferRequest(Request.Url.AbsolutePath);
+
                 }
             }
         }

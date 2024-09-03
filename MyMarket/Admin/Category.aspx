@@ -83,6 +83,12 @@
                     <div class="form-action pb-5">
                         <div class="text-left">
                             <asp:Button ID="btnAddOrUpdate" runat="server" CssClass="btn btn-info" Text="Add" OnClick="btnAddOrUpdate_Click" />
+                        
+                            <!--<script type="text/javascript">
+                                function reloadPage() {
+                                    window.location.reload()
+                            </script>
+                            <meta http-equiv="refresh" content="600">  <!--page refresh-->
                             <asp:Button ID="btnClear" runat="server" CssClass="btn btn-dark" Text="Reset" OnClick="btnClear_Click" />
                         </div>
                     </div>
